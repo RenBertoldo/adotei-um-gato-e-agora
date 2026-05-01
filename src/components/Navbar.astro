@@ -1,0 +1,53 @@
+---
+interface Props {
+  brand?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+const { brand, ctaLabel, ctaHref = '#cta' } = Astro.props;
+---
+
+<header class="navbar">
+  <div class="container">
+    <a href="#hero" class="logo">{brand}</a>
+    <a href={ctaHref} class="btn-cta">{ctaLabel}</a>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(253, 248, 243, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .btn-cta {
+    font-size: 0.875rem;
+    font-weight: 700;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s;
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-accent-hover);
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+const bonuses = [
+  {
+    icon: '📋',
+    title: 'Checklist dos primeiros dias',
+    description: 'com o seu gato',
+  },
+  {
+    icon: '📝',
+    title: 'Lista prática de cuidados essenciais',
+    description: 'para tutores iniciantes',
+  },
+];
+---
+
+<section class="bonus">
+  <div class="container">
+    <h2>Bônus exclusivos <span class="highlight">para você!</span></h2>
+    <p class="subtitle">Além do guia completo, você recebe gratuitamente:</p>
+
+    <div class="grid">
+      {bonuses.map(({ icon, title, description }) => (
+        <div class="card">
+          <div class="card-icon">{icon}</div>
+          <div class="badge">GRÁTIS</div>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bonus {
+    background-color: var(--color-warm-light);
+    padding: var(--section-padding);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .highlight {
+    color: var(--color-warm);
+  }
+
+  .subtitle {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-top: -0.75rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    max-width: 600px;
+  }
+
+  .card {
+    position: relative;
+    background-color: white;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-icon {
+    font-size: 2.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    right: 1rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+</style>

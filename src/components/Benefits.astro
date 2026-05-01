@@ -1,0 +1,186 @@
+---
+import { Image } from 'astro:assets';
+import imgDesktop from '../assets/images/Imagem7.webp';
+import imgMobile from '../assets/images/Imagem7A.webp';
+
+const benefits = [
+  {
+    icon: '🛡️',
+    title: 'Mais segurança no dia a dia',
+    description: 'Saiba exatamente o que fazer em cada situação, sem medo de errar.',
+  },
+  {
+    icon: '😻',
+    title: 'Um gato mais tranquilo e adaptado',
+    description: 'Entenda como criar um ambiente seguro e estimulante para o seu felino.',
+  },
+  {
+    icon: '✅',
+    title: 'Menos dúvidas e menos erros',
+    description: 'Guia direto ao ponto para você agir com confiança desde o primeiro dia.',
+  },
+  {
+    icon: '💚',
+    title: 'Mais saúde e bem-estar',
+    description: 'Previna doenças e problemas comportamentais com orientação prática.',
+  },
+];
+---
+
+<section class="benefits">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Cuidando do seu gato com carinho"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <h2>Com esse guia, você vai ter:</h2>
+
+      <div class="grid">
+        {benefits.map(({ icon, title, description }) => (
+          <div class="card">
+            <span class="icon">{icon}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgDesktop}
+        alt="Cuidando do seu gato com carinho"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits {
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-right: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-left: 10rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: box-shadow 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

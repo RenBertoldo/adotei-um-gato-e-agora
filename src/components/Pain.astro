@@ -1,0 +1,179 @@
+---
+import { Image } from 'astro:assets';
+import imgDesktop from '../assets/images/Imagem2.webp';
+import imgMobile from '../assets/images/Imagem2A.webp';
+
+const painPoints = [
+  'O seu gato se esconde e você não sabe o motivo',
+  'Ele não come direito ou parece estranho',
+  'Você não sabe se está alimentando corretamente',
+  'Tem medo de estar fazendo algo errado',
+  'Não entende o comportamento do seu gato',
+];
+---
+
+<section class="pain">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Gato se escondendo embaixo do sofá"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgDesktop}
+        alt="Gato se escondendo embaixo do sofá"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <h2>
+        Se você está começando agora,<br />
+        <strong>provavelmente já passou por isso:</strong>
+      </h2>
+
+      <ul class="pain-list">
+        {painPoints.map((point) => (
+          <li>
+            <span class="icon">😟</span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="relief">
+        <span class="relief-icon">💚</span>
+        <p><strong>Você não está sozinho — e isso tem solução.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pain {
+    background-color: var(--color-warm-light);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-left: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-right: 10rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .pain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .relief {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--color-accent-light);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+  }
+
+  .relief-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .relief p {
+    font-size: 1rem;
+    color: var(--color-accent);
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+  }
+</style>

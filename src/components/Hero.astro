@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets';
+import imgHero from '../assets/images/Imagem1.webp';
+import imgMobile from '../assets/images/Imagem1A.webp';
+
+const bullets = [
+  'Guia completo',
+  'Conteúdo prático e fácil',
+  'Baseado em medicina veterinária e comportamento felino',
+];
+---
+
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Adotei um gato, e agora? — eBook da Bia Morais"
+        loading="eager"
+      />
+    </div>
+
+    <div class="content">
+      <h1>
+        Adotou um gato e não sabe se está
+        <em>fazendo tudo certo?</em>
+      </h1>
+      <p class="subtitle">
+        Aprenda, de forma simples e segura, como cuidar do seu gato desde o
+        primeiro dia — evitando erros que podem levar a estresse, doenças e
+        problemas de comportamento.
+      </p>
+      <ul class="bullets">
+        {bullets.map((b) => (
+          <li>
+            <span class="check">✓</span>
+            {b}
+          </li>
+        ))}
+      </ul>
+      <a href="#cta" class="btn-primary">Quero meu eBook agora!</a>
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgHero}
+        alt="Adotei um gato, e agora? — eBook da Bia Morais"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-right: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    text-align: left;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-left: 10rem ;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--color-warm);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .bullets li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 1rem;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-sm);
+    align-self: flex-start;
+    transition: background-color 0.15s, transform 0.1s;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import imgDesktop from '../assets/images/Imagem3.webp';
+import imgMobile from '../assets/images/Imagem3A.webp';
+---
+
+<section class="product">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Adotei um gato, e agora? — eBook da Bia Morais"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <h2>O guia que todo novo tutor precisa</h2>
+      <p>
+        Este eBook é um guia prático e direto, criado para ajudar tutores em
+        conflito e cuidadores de gato com segurança, evitando erros comuns que
+        podem prejudicar a saúde e o bem-estar do animal.
+      </p>
+      <p>
+        Com linguagem simples e conteúdo baseado em comportamento felino e
+        medicina veterinária, você vai aprender tudo o que precisa desde o
+        primeiro dia.
+      </p>
+      <a href="#cta" class="btn-primary">Quero meu eBook agora!</a>
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgDesktop}
+        alt="Adotei um gato, e agora? — eBook da Bia Morais"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .product {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-right: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-left: 10rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 0.95rem;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-sm);
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: background-color 0.15s;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+  }
+</style>

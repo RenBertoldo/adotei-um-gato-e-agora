@@ -1,0 +1,58 @@
+---
+---
+
+<footer class="footer">
+  <div class="container">
+    <p class="brand">🐾 Adotei um Gato, e Agora?!</p>
+    <p class="copy">&copy; {new Date().getFullYear()} Todos os direitos reservados.</p>
+    <nav class="links">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+      <a href="#">Contato</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-text);
+    color: rgba(255,255,255,0.7);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .brand {
+    font-weight: 800;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .copy {
+    font-size: 0.8rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .links a {
+    font-size: 0.8rem;
+    transition: color 0.15s;
+  }
+
+  .links a:hover {
+    color: white;
+  }
+</style>

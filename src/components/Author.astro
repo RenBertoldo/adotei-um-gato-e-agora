@@ -1,0 +1,145 @@
+---
+import { Image } from 'astro:assets';
+import imgDesktop from '../assets/images/Imagem8.webp';
+import imgMobile from '../assets/images/Imagem8A.webp';
+---
+
+<section class="author">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Bia Morais — veterinária e autora do guia"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgDesktop}
+        alt="Bia Morais — veterinária e autora do guia"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <h2>Quem sou eu?</h2>
+      <p>
+        Aqui você pode adicionar sua apresentação, formação, experiência e sua
+        paixão por medicina felina.
+      </p>
+      <p>
+        Conte brevemente sobre sua trajetória como veterinária ou especialista
+        em comportamento felino, e o que te motivou a criar este guia para
+        novos tutores.
+      </p>
+      <div class="credentials">
+        <span class="credential">🎓 Formação veterinária</span>
+        <span class="credential">🐱 Especialista em felinos</span>
+        <span class="credential">📚 Autora do guia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .author {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-left: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-right: 10rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+  }
+
+  .credential {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: var(--color-accent-light);
+    color: var(--color-accent-hover);
+    border: 1px solid #c490a8;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+  }
+</style>

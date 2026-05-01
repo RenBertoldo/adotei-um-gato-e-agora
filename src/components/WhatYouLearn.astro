@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import imgDesktop from '../assets/images/Imagem4.webp';
+import imgMobile from '../assets/images/Imagem4A.webp';
+
+const topics = [
+  { icon: '🏠', text: 'Como fazer seu gato se sentir em casa' },
+  { icon: '🪣', text: 'Como manter corretamente a caixa de areia' },
+  { icon: '🍽️', text: 'Como alimentar adequadamente seu gato' },
+  { icon: '⚠️', text: 'Sinais de alerta que você não pode ignorar' },
+  { icon: '😌', text: 'Como evitar estresse no seu gato' },
+  { icon: '💧', text: 'Alimentação correta e hidratação' },
+  { icon: '🩺', text: 'Como prevenir problemas de saúde comuns' },
+];
+---
+
+<section class="learn">
+  <div class="container">
+    <div class="mobile-image">
+      <Image
+        src={imgMobile}
+        alt="Gato em arranhador dentro de casa"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="image-wrapper">
+      <Image
+        src={imgDesktop}
+        alt="Gato em arranhador dentro de casa"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="content">
+      <h2>O que você vai aprender</h2>
+      <p class="subtitle">Conteúdo prático organizado para você aplicar desde o primeiro dia.</p>
+
+      <div class="grid">
+        {topics.map(({ icon, text }) => (
+          <div class="card">
+            <span class="card-icon">{icon}</span>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .learn {
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: stretch;
+    gap: 3rem;
+    padding-left: 0;
+  }
+
+  .content {
+    flex: 0 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 5rem 0;
+    min-width: 40rem;
+    padding-right: 10rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-top: -0.75rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    font-size: 1.75rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--color-text);
+  }
+
+  .mobile-image {
+    display: none;
+  }
+
+  .image-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.3s ease;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .mobile-image {
+      display: block;
+      width: 100%;
+    }
+
+    .mobile-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-wrapper {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      min-width: 0;
+      padding: 1.5rem 2rem 2.5rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
