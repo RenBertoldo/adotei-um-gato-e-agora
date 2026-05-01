@@ -12,9 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@img/sharp-darwin-arm64": "^0.34.5",
     "astro": "^6.2.1",
-    "node-addon-api": "^8.7.0",
     "sharp": "^0.34.5"
   }
 }
