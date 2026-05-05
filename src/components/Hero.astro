@@ -38,7 +38,10 @@ const bullets = [
           </li>
         ))}
       </ul>
-      <a href="https://pay.hotmart.com/N105362193D" class="btn-primary">Quero meu eBook agora!</a>
+      <div class="cta-group">
+        <a href="https://pay.hotmart.com/N105362193D" class="btn-primary">Quero meu eBook agora →</a>
+        <p class="cta-guarantee">🔒 Compra segura · Acesso imediato · Garantia de 7 dias</p>
+      </div>
     </div>
 
     <div class="image-wrapper">
@@ -126,24 +129,46 @@ const bullets = [
     flex-shrink: 0;
   }
 
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 4px 20px rgba(125, 34, 66, 0.35); }
+    50%       { box-shadow: 0 6px 32px rgba(125, 34, 66, 0.6); }
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .cta-guarantee {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+
   .btn-primary {
     display: inline-block;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.05rem;
     background-color: var(--color-accent);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1.1rem 2.5rem;
     border-radius: var(--radius-sm);
     align-self: flex-start;
-    transition: background-color 0.15s, transform 0.1s;
+    transition: background-color 0.15s, transform 0.1s, box-shadow 0.15s;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(125, 34, 66, 0.35);
+    animation: pulse-cta 2.5s ease-in-out infinite;
   }
 
   .btn-primary:hover {
     background-color: var(--color-accent-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(125, 34, 66, 0.5);
+    animation: none;
   }
 
   .mobile-image {
