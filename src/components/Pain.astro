@@ -39,7 +39,7 @@ const painPoints = [
       <ul class="pain-list">
         {painPoints.map((point) => (
           <li>
-            <i class="fa-solid fa-face-frown"></i>
+            <i class="fa-solid fa-ban"></i>
             <span>{point}</span>
           </li>
         ))}
@@ -151,6 +151,7 @@ const painPoints = [
     .container {
       flex-direction: column;
       padding: 0;
+      gap: 0;
     }
 
     .mobile-image {

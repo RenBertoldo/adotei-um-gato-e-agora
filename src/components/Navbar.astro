@@ -9,7 +9,7 @@ const { brand, ctaLabel, ctaHref = '#cta' } = Astro.props;
 
 <header class="navbar">
   <div class="container">
-    <a href="#hero" class="logo">{brand}</a>
+    <a href="/" class="logo">{brand}</a>
     <a href={ctaHref} class="btn-cta">{ctaLabel}</a>
   </div>
 </header>
@@ -25,6 +25,7 @@ const { brand, ctaLabel, ctaHref = '#cta' } = Astro.props;
   }
 
   .container {
+    line-height: normal;
     height: 60px;
     display: flex;
     align-items: center;
