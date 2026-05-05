@@ -41,6 +41,8 @@ const {
     --color-muted: #7a4a5a;
     --color-accent: #7d2242;
     --color-accent-hover: #621933;
+    --color-cta: #E20000;
+    --color-cta-hover: #b30000;
     --color-accent-light: #fde8ef;
     --color-warm: #7d2242;
     --color-warm-light: #fde8ef;
@@ -49,6 +51,11 @@ const {
     --radius-sm: 8px;
     --max-width: 1100px;
     --section-padding: 5rem 0;
+  }
+
+  @keyframes blink-cta {
+    0%, 100% { background-color: #E20000; box-shadow: 0 4px 20px rgba(226, 0, 0, 0.4); }
+    50%       { background-color: #FF0000; box-shadow: 0 6px 32px rgba(255, 0, 0, 0.65); }
   }
 
   html { scroll-behavior: smooth; }

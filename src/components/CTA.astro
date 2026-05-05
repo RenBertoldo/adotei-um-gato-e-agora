@@ -82,7 +82,7 @@ import imgMobile from '../assets/images/Imagem9A.webp';
     display: inline-block;
     font-weight: 800;
     font-size: 1.05rem;
-    background-color: var(--color-accent);
+    background-color: var(--color-cta);
     color: white;
     padding: 1rem 2.5rem;
     border-radius: var(--radius-sm);
@@ -90,14 +90,15 @@ import imgMobile from '../assets/images/Imagem9A.webp';
     text-transform: uppercase;
     letter-spacing: 0.04em;
     transition: background-color 0.15s, transform 0.1s, box-shadow 0.15s;
-    box-shadow: 0 4px 20px rgba(125, 34, 66, 0.3);
     white-space: nowrap;
+    animation: blink-cta 1s ease-in-out infinite;
   }
 
   .btn-cta:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-cta-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(125, 34, 66, 0.4);
+    box-shadow: 0 8px 28px rgba(226, 0, 0, 0.55);
+    animation: none;
   }
 
   .fine-print {
@@ -150,6 +151,17 @@ import imgMobile from '../assets/images/Imagem9A.webp';
       max-width: 100%;
       min-width: 0;
       padding: 1.5rem 2rem 2.5rem;
+    }
+
+    .btn-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 1.25rem 2rem;
+      white-space: normal;
+      border-radius: var(--radius);
+      align-self: auto;
     }
   }
 </style>

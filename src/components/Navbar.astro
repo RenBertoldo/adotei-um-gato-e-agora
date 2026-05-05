@@ -40,15 +40,16 @@ const { brand, ctaLabel, ctaHref = '#cta' } = Astro.props;
   .btn-cta {
     font-size: 0.875rem;
     font-weight: 700;
-    background-color: var(--color-accent);
     color: white;
     padding: 0.45rem 1.1rem;
     border-radius: var(--radius-sm);
-    transition: background-color 0.15s;
+    transition: transform 0.1s, box-shadow 0.15s;
     white-space: nowrap;
+    animation: blink-cta 1s ease-in-out infinite;
   }
 
   .btn-cta:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-cta-hover);
+    animation: none;
   }
 </style>

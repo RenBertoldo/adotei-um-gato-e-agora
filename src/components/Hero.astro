@@ -129,11 +129,6 @@ const bullets = [
     flex-shrink: 0;
   }
 
-  @keyframes pulse-cta {
-    0%, 100% { box-shadow: 0 4px 20px rgba(125, 34, 66, 0.35); }
-    50%       { box-shadow: 0 6px 32px rgba(125, 34, 66, 0.6); }
-  }
-
   .cta-group {
     display: flex;
     flex-direction: column;
@@ -151,7 +146,7 @@ const bullets = [
     display: inline-block;
     font-weight: 800;
     font-size: 1.05rem;
-    background-color: var(--color-accent);
+    background-color: var(--color-cta);
     color: white;
     padding: 1.1rem 2.5rem;
     border-radius: var(--radius-sm);
@@ -160,14 +155,13 @@ const bullets = [
     text-transform: uppercase;
     letter-spacing: 0.02em;
     white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(125, 34, 66, 0.35);
-    animation: pulse-cta 2.5s ease-in-out infinite;
+    animation: blink-cta 1s ease-in-out infinite;
   }
 
   .btn-primary:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-cta-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(125, 34, 66, 0.5);
+    box-shadow: 0 8px 28px rgba(226, 0, 0, 0.55);
     animation: none;
   }
 
@@ -215,6 +209,25 @@ const bullets = [
       max-width: 100%;
       min-width: 0;
       padding: 1.5rem 2rem 2.5rem;
+    }
+
+    .cta-group {
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 1.25rem 2rem;
+      white-space: normal;
+      border-radius: var(--radius);
+    }
+
+    .cta-guarantee {
+      text-align: center;
     }
   }
 </style>
