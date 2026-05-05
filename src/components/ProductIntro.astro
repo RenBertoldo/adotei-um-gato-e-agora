@@ -26,7 +26,7 @@ import imgMobile from '../assets/images/Imagem3A.webp';
         medicina veterinária, você vai aprender tudo o que precisa desde o
         primeiro dia.
       </p>
-      <a href="https://pay.hotmart.com/N105362193D" class="btn-primary">Quero meu eBook agora!</a>
+      <a href="https://pay.hotmart.com/N105362193D" class="btn-primary">QUERO MEU EBOOK AGORA →</a>
     </div>
 
     <div class="image-wrapper">
@@ -79,20 +79,24 @@ import imgMobile from '../assets/images/Imagem3A.webp';
   .btn-primary {
     display: inline-block;
     font-weight: 800;
-    font-size: 0.95rem;
-    background-color: var(--color-accent);
+    font-size: 1.05rem;
+    background-color: var(--color-cta);
     color: white;
-    padding: 0.75rem 1.75rem;
+    padding: 1rem 2.5rem;
     border-radius: var(--radius-sm);
     align-self: flex-start;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    transition: background-color 0.15s;
+    letter-spacing: 0.04em;
+    transition: background-color 0.15s, transform 0.1s, box-shadow 0.15s;
     white-space: nowrap;
+    animation: blink-cta 1s ease-in-out infinite;
   }
 
   .btn-primary:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(226, 0, 0, 0.55);
+    animation: none;
   }
 
   .mobile-image {

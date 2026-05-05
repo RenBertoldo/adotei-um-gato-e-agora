@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import imgDesktop from '../assets/images/Imagem9.webp';
 import imgMobile from '../assets/images/Imagem9A.webp';
+import imgGarantia from '../assets/images/garantia.png';
+import imgAcesso from '../assets/images/acesso-imediato.png';
 ---
 
 <section class="cta" id="cta">
@@ -21,9 +23,10 @@ import imgMobile from '../assets/images/Imagem9A.webp';
       </h2>
       <p>Comece da forma certa hoje mesmo!</p>
       <a href="https://pay.hotmart.com/N105362193D" class="btn-cta">QUERO MEU EBOOK AGORA →</a>
-      <p class="fine-print">
-        Acesso imediato após a compra &bull; Formato PDF &bull; Garantia de 7 dias
-      </p>
+      <div class="trust-badges">
+        <Image src={imgAcesso} alt="Acesso imediato" class="badge-acesso" loading="lazy" />
+        <Image src={imgGarantia} alt="Garantia de 7 dias" class="badge-garantia" loading="lazy" />
+      </div>
     </div>
 
     <div class="image-wrapper">
@@ -99,6 +102,22 @@ import imgMobile from '../assets/images/Imagem9A.webp';
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(226, 0, 0, 0.55);
     animation: none;
+  }
+
+  .trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .badge-garantia {
+    height: 80px;
+    width: auto;
+  }
+
+  .badge-acesso {
+    height: 48px;
+    width: auto;
   }
 
   .fine-print {
