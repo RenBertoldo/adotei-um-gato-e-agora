@@ -5,22 +5,22 @@ import imgMobile from '../assets/images/Imagem7A.webp';
 
 const benefits = [
   {
-    icon: '🛡️',
+    icon: 'fa-solid fa-shield-cat',
     title: 'Mais segurança no dia a dia',
     description: 'Saiba exatamente o que fazer em cada situação, sem medo de errar.',
   },
   {
-    icon: '😻',
+    icon: 'fa-solid fa-cat',
     title: 'Um gato mais tranquilo e adaptado',
     description: 'Entenda como criar um ambiente seguro e estimulante para o seu felino.',
   },
   {
-    icon: '✅',
+    icon: 'fa-solid fa-circle-check',
     title: 'Menos dúvidas e menos erros',
     description: 'Guia direto ao ponto para você agir com confiança desde o primeiro dia.',
   },
   {
-    icon: '💚',
+    icon: 'fa-solid fa-heart-pulse',
     title: 'Mais saúde e bem-estar',
     description: 'Previna doenças e problemas comportamentais com orientação prática.',
   },
@@ -43,7 +43,7 @@ const benefits = [
       <div class="grid">
         {benefits.map(({ icon, title, description }) => (
           <div class="card">
-            <span class="icon">{icon}</span>
+            <i class={icon}></i>
             <div>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -85,7 +85,7 @@ const benefits = [
     gap: 2rem;
     padding: 5rem 0;
     min-width: 40rem;
-    padding-left: 10rem;
+    padding-left: 2rem;
   }
 
   h2 {

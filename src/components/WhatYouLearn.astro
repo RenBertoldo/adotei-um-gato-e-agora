@@ -4,13 +4,13 @@ import imgDesktop from '../assets/images/Imagem4.webp';
 import imgMobile from '../assets/images/Imagem4A.webp';
 
 const topics = [
-  { icon: '🏠', text: 'Como fazer seu gato se sentir em casa' },
-  { icon: '🪣', text: 'Como manter corretamente a caixa de areia' },
-  { icon: '🍽️', text: 'Como alimentar adequadamente seu gato' },
-  { icon: '⚠️', text: 'Sinais de alerta que você não pode ignorar' },
-  { icon: '😌', text: 'Como evitar estresse no seu gato' },
-  { icon: '💧', text: 'Alimentação correta e hidratação' },
-  { icon: '🩺', text: 'Como prevenir problemas de saúde comuns' },
+  { icon: 'fa-solid fa-house', text: 'Como fazer seu gato se sentir em casa' },
+  { icon: 'fa-solid fa-poop', text: 'Como manter corretamente a caixa de areia' },
+  { icon: 'fa-solid fa-fish', text: 'Como alimentar adequadamente seu gato' },
+  { icon: 'fa-solid fa-triangle-exclamation', text: 'Sinais de alerta que você não pode ignorar' },
+  { icon: 'fa-solid fa-hand-peace', text: 'Como evitar estresse no seu gato' },
+  { icon: 'fa-solid fa-droplet', text: 'Alimentação correta e hidratação' },
+  { icon: 'fa-solid fa-stethoscope', text: 'Como prevenir problemas de saúde comuns' },
 ];
 ---
 
@@ -39,7 +39,7 @@ const topics = [
       <div class="grid">
         {topics.map(({ icon, text }) => (
           <div class="card">
-            <span class="card-icon">{icon}</span>
+            <i class={icon}></i>
             <p>{text}</p>
           </div>
         ))}
@@ -69,7 +69,7 @@ const topics = [
     gap: 1.5rem;
     padding: 5rem 0;
     min-width: 40rem;
-    padding-right: 10rem;
+    padding-right: 2rem;
   }
 
   h2 {

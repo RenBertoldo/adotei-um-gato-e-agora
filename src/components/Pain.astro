@@ -39,14 +39,13 @@ const painPoints = [
       <ul class="pain-list">
         {painPoints.map((point) => (
           <li>
-            <span class="icon">😟</span>
+            <i class="fa-solid fa-face-frown"></i>
             <span>{point}</span>
           </li>
         ))}
       </ul>
 
       <div class="relief">
-        <span class="relief-icon">💚</span>
         <p><strong>Você não está sozinho — e isso tem solução.</strong></p>
       </div>
     </div>
@@ -74,7 +73,7 @@ const painPoints = [
     gap: 2rem;
     padding: 5rem 0;
     min-width: 40rem;
-    padding-right: 10rem;
+    padding-right: 2rem;
   }
 
   h2 {
@@ -85,6 +84,7 @@ const painPoints = [
   }
 
   .pain-list {
+    justify-content: center;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@ const painPoints = [
 
   .pain-list li {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     background-color: white;
     border: 1px solid var(--color-border);
@@ -114,7 +114,6 @@ const painPoints = [
     align-items: center;
     gap: 0.75rem;
     background-color: var(--color-accent-light);
-    border: 1px solid var(--color-accent);
     border-radius: var(--radius-sm);
     padding: 1rem 1.25rem;
   }
@@ -125,7 +124,7 @@ const painPoints = [
   }
 
   .relief p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-accent);
   }
 
